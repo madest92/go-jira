@@ -56,6 +56,7 @@ type Client struct {
 	PermissionScheme *PermissionSchemeService
 	Status           *StatusService
 	IssueLinkType    *IssueLinkTypeService
+	WorkflowScheme   *WorkflowSchemeService
 }
 
 // NewClient returns a new Jira API client.
@@ -102,6 +103,7 @@ func NewClient(httpClient httpClient, baseURL string) (*Client, error) {
 	c.PermissionScheme = &PermissionSchemeService{client: c}
 	c.Status = &StatusService{client: c}
 	c.IssueLinkType = &IssueLinkTypeService{client: c}
+	c.WorkflowScheme = &WorkflowSchemeService{client: c}
 
 	return c, nil
 }
